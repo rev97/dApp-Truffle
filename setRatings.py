@@ -89,21 +89,21 @@ if __name__ =="__main__":
     for key in ml_p.keys():
         if 0< total_rating - ml_p[key][2] and total_rating - ml_p[key][2] <=0.05:
             ml_p[key][1] = ml_p[key][1] + 0.02
-            update_transact(account_from,validator,ml_p[key][0],ml_p[key][1])
+            update_transact(account_from,validator,ml_p[key][0],int(ml_p[key][1]))
         elif 0.05 < total_rating - ml_p[key][2] and total_rating - ml_p[key][2]<=0.2:
             ml_p[key][1] = ml_p[key][1]
         elif total_rating - ml_p[key][2]>0.2:
             ml_p[key][1] = ml_p[key][1] - 0.05
-            update_transact(account_from,validator,ml_p[key][0],ml_p[key][1])
+            update_transact(account_from,validator,ml_p[key][0],int(ml_p[key][1]))
 
     for key in sp_p.keys():
         if 0< total_rating - sp_p[key][2] and total_rating - sp_p[key][2] <=0.05:
             sp_p[key][1] = sp_p[key][1] + 0.02
-            update_transact(account_from,validator,sp_p[key][0],sp_p[key][1])
+            update_transact(account_from,validator,sp_p[key][0],int(sp_p[key][1]))
         elif 0.05 < total_rating - sp_p[key][2] and total_rating - sp_p[key][2]<=0.2:
             sp_p[key][1] = sp_p[key][1]
         elif total_rating - sp_p[key][2]>0.2:
             sp_p[key][1] = sp_p[key][1] - 0.05
-            update_transact(account_from,validator,sp_p[key][0],sp_p[key][1])
+            update_transact(account_from,validator,sp_p[key][0],int(sp_p[key][1]))
 
 
