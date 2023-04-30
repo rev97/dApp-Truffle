@@ -71,6 +71,7 @@ if __name__ =="__main__":
         sum_ml = V_ml*i[1]/5
         ml_p[i[0]]=[i[0],i[1],sum_ml]
         total_sum_ml+=sum_ml
+    total_sum_ml = total_sum_ml/len(ml_peers)
 
     sp_p = dict()
     for i in sp_reviewers:
@@ -81,6 +82,8 @@ if __name__ =="__main__":
         sum_spr = V_sp*i[1]/5
         sp_p[i[0]]=[i[0],i[1],sum_spr]
         total_sum_spr+=sum_spr
+
+    total_sum_spr = total_sum_spr/len(sp_reviewers)
 
     total_rating = 0.6*total_sum_ml + 0.4*total_sum_spr
     for key in ml_p.keys():
