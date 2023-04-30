@@ -4,6 +4,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import seaborn as sns
+import sys
 
 from util import create_dataset
 from util import data_preprocess
@@ -40,7 +41,7 @@ class MLPmodel:
         return X_test, accuracy_score
 
 if __name__ == '__main__':
-    df = create_dataset('/Users/revanthgottuparthy/Desktop/ABC/MLPclassifier/input_data.csv')
+    df = create_dataset(sys.argv[1])
     df = data_preprocess(df)
     mlp_obj = MLPmodel(df)
     x_col = ['zone_R','zone_C','zone_I','PCN Number']
@@ -49,4 +50,4 @@ if __name__ == '__main__':
     X_train, X_test, y_train, y_test = mlp_obj.split_data(x_col, target, test_size)
     res, accuracy_score = mlp_obj.model(X_train, X_test, y_train, y_test)
     print(accuracy_score)
-    res.to_csv('/Users/revanthgottuparthy/Desktop/ABC/MLPclassifier/output_data.csv')
+    res.to_csv(sys.argv[2])
